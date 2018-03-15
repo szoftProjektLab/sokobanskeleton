@@ -54,7 +54,11 @@ public class Player extends Thing {
         //trymove
     }
 
-    //???
+    /**
+     * meghal
+     * @param w
+     * @return
+     */
     public int AcceptMove (Wall w){
         return 0;
     }
