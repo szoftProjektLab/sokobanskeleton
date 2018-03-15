@@ -1,4 +1,7 @@
 package things;
 
-public class ColouredBox {
+public class ColouredBox extends Box{
+    public void Die(){
+
+    }
 }
