@@ -38,8 +38,8 @@ public class Player extends Thing {
      */
     public int Collide (Direction d, Box b){
         //tmp: <return field.TryPlyer(d);> szét kellett választani h jó sorrendben fusson a call és return
-        Skeleton.getInstance.Call(this, field,"TryPlayer");
-        int tmp = field.TryPlyer(d);
+        Skeleton.getInstance.Call(this, field,"TryMove");
+        int tmp = field.TryMove(d);
 
         Skeleton.getInstance.Return(this);
         return tmp;
