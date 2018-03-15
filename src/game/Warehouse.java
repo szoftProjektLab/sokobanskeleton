@@ -10,10 +10,9 @@ public class Warehouse {
     //Kezdési folyamat
     public void StartingProcess(){}
 
+    //Színes dobozok számát csökkentő függvény
     public void CBDecrease() {
-        //Színes dobozok száma csökkentése
         colouredBoxCount--;
-        //Színes dobozok száma ellenőrzés
         if (colouredBoxCount == 0) {
             //Játék referencia lekérdezése
             Game game = Game.getInstance();
@@ -26,10 +25,9 @@ public class Warehouse {
         Skeleton.getInstance().Return(this);
     }
 
+    //Játékosok számát csökkentő függvény
     public void PDecrease(){
-        //Játékos dobozok száma csökkentése
         playerCount--;
-        //Játékosok száma ellenőrzés
         if(playerCount==1) {
             //Játék referencia lekérdezése
             Game game = Game.getInstance();
