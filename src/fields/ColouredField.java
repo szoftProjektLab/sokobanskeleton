@@ -3,16 +3,32 @@ package fields;
 import display.Colours;
 import game.Skeleton;
 import things.ColouredBox;
-import things.Thing;
 
 public class ColouredField extends Field{
 
+    /** A színe */
     private Colours colour;
-    //private ColouredBox box; //thing==box nem lehet
-    private Thing box;
 
+    /** A hozzá tartozó doboz */
+    private ColouredBox box;
+
+    public void SetBox(ColouredBox cb){ box=cb; }
+    private void SetColour(Colours c){ this.colour = c; }
+
+    /**
+     * Beállítja a saját és a hozzá tartozó színes doboz színét.
+     */
     public void InitColour(){
-        //???
+        //inithez kell?// Skeleton.getInstance.Call(this, ,"RandomColour");
+        Colours c = Colours.RandomColour();
+
+        //inithez kell?// Skeleton.getInstance.Call(this, this,"SetColour");
+        SetColour(c);
+
+        //inithez kell?// Skeleton.getInstance.Call(this, box,"SetColour");
+        box.SetColour(c);
+
+        //inithez kell?// Skeleton.getInstance.Return(this);
     }
 
     /**
