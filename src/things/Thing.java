@@ -7,59 +7,62 @@ import game.Warehouse;
 
 public class Thing {
 
-    Warehouse w;
-    Field f;
+    Warehouse warehouse;
+    Field field;
 
-    //??? mozogni kívánó, használni kívánt fieldet elfoglaló??
     /**
-     * Ha a helyet változtató Thing új Field-jén áll egy Thing, ezzel értesül
-     * @param d
-     * @param t
+     * Ha a helyet változtató Thing új Field-jén áll egy Thing, ez hívja meg,
+     * hogy értesítse
+     * @param d A mozgás iránya
+     * @param t A használni kívánt mezőt elfogaló Thing
      * @return
      */
     public int MakeCollision (Direction d, Thing t){
-        //call
-        //???
-        return 0;
+        Skeleton.getInstance.Call(this, t,"Collide");
+        int tmp = t.Collide(d, this);
+
+        Skeleton.getInstance.Return(this);
+        return tmp;
     }
 
     /**
-     * Az érkező Thing hívja
+     * A leszármazottak felüldefiniálják. Az érkező Thing hívja.
      * @param d A mozgás iránya
      * @param t Az érkező Thing
-     * @return
+     * @return 0
      */
     public int Collide (Direction d, Thing t){
         return 0;
     }
 
     /**
-     * Végrehajtja a léptetést
+     * Végrehajtja a léptetést. A használni kívánt szabad mező hívja
      * @param f az új mező
      * @return
      */
     public int AcceptMove(Field f){
-        Skeleton.getInstance.Call();
+        Skeleton.getInstance.Call(this, field,"Remove");
+        field.Remove(this);
 
-        f.Remove(this);
-        f.Add(this);
+        Skeleton.getInstance.Call(this, f,"Add");
+        int tmp = f.Add(this);
 
-        return 0; //???
+        Skeleton.getInstance.Return(this);
+        return tmp;
     }
 
     /**
      * Nem csinál semmit
-     * @param w
-     * @return
+     * @param w A kapott fal, amire lépnie kéne.
+     * @return 0
      */
     public int AcceptMove(Wall w){
-        //call
-        //???
+        Skeleton.getInstance.Return(this);
         return 0;
     }
 
     /**
-     * Overriden by descendant classes
+     * A leszármazottak felüldefiniálják
      */
     public void Die(){}
 }

@@ -2,12 +2,11 @@ package things;
 
 import enums.Direction;
 import fields.*;
+import game.Skeleton;
 
 public class Player extends Thing {
 
-    /**
-     * A játékos ponjai
-     */
+    /** A játékos ponjai */
     private int points;
 
     /**
@@ -15,8 +14,8 @@ public class Player extends Thing {
      * @param points hozzá adandó pontok száma
      */
     public void AddPoints(int points){
-        //call
         this.points += points;
+        Skeleton.getInstance.Return(this);
     }
 
     /**
@@ -27,21 +26,23 @@ public class Player extends Thing {
      * @return
      */
     public int Collide (Direction d, Player p){
-        //call
-        //???
+        Skeleton.getInstance.Return(this);
         return 0;
     }
 
     /**
-     * Ütközeti a Player-t és a Box-ot.
+     * Ütközeti a Player-t és a Box-ot. Box tolja a Playert.
      * @param d A mozgás iránya
      * @param b Az érkező Box
      * @return
      */
     public int Collide (Direction d, Box b){
-        //call
-        //???
-        return 0;
+        //tmp: <return field.TryPlyer(d);> szét kellett választani h jó sorrendben fusson a call és return
+        Skeleton.getInstance.Call(this, field,"TryPlayer");
+        int tmp = field.TryPlyer(d);
+
+        Skeleton.getInstance.Return(this);
+        return tmp;
     }
 
     /**
@@ -50,16 +51,23 @@ public class Player extends Thing {
      * @param d A mozgás iránya
      */
     public void StratMove(Direction d){
+        //???
         //call
         //trymove
     }
 
     /**
-     * meghal
-     * @param w
-     * @return
+     * Player-t falra toltak meghal
+     * @param w A kapott fal ahova lépne
+     * @return 0
      */
     public int AcceptMove (Wall w){
+        //???
+        //delete
+        //Skeleton.getInstance.Call(this, field,"Remove");
+        //field.Remove(this);
+
+        Skeleton.getInstance.Return(this);
         return 0;
     }
 
@@ -69,7 +77,12 @@ public class Player extends Thing {
      * a játékosok számát csökkenti eggyel.
      */
     public void Die(){
-        //call
-        //delete
+        Skeleton.getInstance.Call(this, field,"PDecrease");
+        warehouse.PDecrease();
+
+        Skeleton.getInstance.Call(this, field,"Remove");
+        field.Remove(this);
+
+        Skeleton.getInstance.Return(this);
     }
 }

@@ -1,6 +1,7 @@
 package things;
 
 import enums.Direction;
+import game.Skeleton;
 
 public class Box extends Thing {
 
@@ -14,16 +15,20 @@ public class Box extends Thing {
      * @return
      */
     public int Collide(Direction d, Thing t){
-        //call
-        //???
-        return 0;
+        Skeleton.getInstance.Call(this, field,"TryMove");
+        int tmp = field.TryMove(d);
+
+        Skeleton.getInstance.Return(this);
+        return tmp;
     }
 
     /**
-     * Hole-ra érkezve az meghívja ezt a metódust
+     * Hole-ra érkezve meghívódik ez a metódust
      */
     public void Die(){
-        //call
-        //Delete
+        Skeleton.getInstance.Call(this, field,"Remove");
+        field.Remove(this);
+
+        Skeleton.getInstance.Return(this);
     }
 }
