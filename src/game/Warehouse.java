@@ -1,7 +1,7 @@
 package game;
 
+//Raktárt viselkedését leíró osztály
 public class Warehouse {
-
     //Színes dobozok száma
     private int colouredBoxCount;
     //Játékosok száma
@@ -10,7 +10,7 @@ public class Warehouse {
     //Kezdési folyamat
     public void StartingProcess(){}
 
-    //Színes dobozok számát csökkentő függvény
+    //Színes dobozok számát csökkentő függvény, véget vet a játéknak, ha egy feltétel teljesül
     public void CBDecrease() {
         colouredBoxCount--;
         if (colouredBoxCount == 0) {
@@ -25,7 +25,7 @@ public class Warehouse {
         Skeleton.getInstance().Return(this);
     }
 
-    //Játékosok számát csökkentő függvény
+    //Játékosok számát csökkentő függvény, véget vet a játéknak, ha egy feltétel teljesül
     public void PDecrease(){
         playerCount--;
         if(playerCount==1) {
