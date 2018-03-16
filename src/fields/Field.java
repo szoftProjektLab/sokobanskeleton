@@ -48,7 +48,7 @@ public class Field {
      */
     public int Add(Thing t){
         this.thing = t;
-        String name = Skeleton.getInstance().GetName(this);
+        String name = Skeleton.getInstance().GetName(t);
         Skeleton.getInstance().Call(this, this, "Interact("+name+")");
         int tmp = Interact(t);
         Skeleton.getInstance().Return(this);
