@@ -41,10 +41,10 @@ public class ColouredField extends Field{
         int tmp=0;
         if (thing==box){
             tmp=1;
-            Skeleton.getInstance.Call(this, thing,"Die");
+            Skeleton.getInstance().Call(this, thing,"Die");
             thing.Die();
         }
-        Skeleton.getInstance.Return(this);
+        Skeleton.getInstance().Return(this);
         return tmp;
     }
 }

@@ -5,7 +5,7 @@ import game.Skeleton;
 
 public class ColouredBox extends Box{
 
-    Colours clour;
+    Colours colour;
 
     /**
      * Ha Hole-ra lép, ez meghívódik és megsemmisül a ColouredBox,
@@ -20,4 +20,5 @@ public class ColouredBox extends Box{
 
         Skeleton.getInstance().Return(this);
     }
+    public void SetColour(Colours c){ colour = c;}
 }

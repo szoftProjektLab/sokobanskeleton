@@ -29,7 +29,7 @@ public class Colours {
      * Random színt készít.
      * @return Random színt visszaad.
      */
-    public Colours RandomColour()
+    public static Colours RandomColour()
     {
         return new Colours();
     }
