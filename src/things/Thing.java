@@ -18,7 +18,8 @@ public class Thing {
      * @return
      */
     public int MakeCollision (Direction d, Thing t){
-        Skeleton.getInstance().Call(this, t,"Collide(d, t)");
+        String name = Skeleton.getInstance().GetName(this);
+        Skeleton.getInstance().Call(this, t,"Collide(d, "+name+")");
         int tmp = t.Collide(d, this);
 
         Skeleton.getInstance().Return(this);
@@ -41,10 +42,11 @@ public class Thing {
      * @return
      */
     public int AcceptMove(Field f){
-        Skeleton.getInstance().Call(this, field,"Remove(t)");
+        String name = Skeleton.getInstance().GetName(this);
+        Skeleton.getInstance().Call(this, field,"Remove("+name+")");
         field.Remove(this);
 
-        Skeleton.getInstance().Call(this, f,"Add(t)");
+        Skeleton.getInstance().Call(this, f,"Add("+name+")");
         int tmp = f.Add(this);
 
         Skeleton.getInstance().Return(this);

@@ -15,7 +15,8 @@ public class ColouredBox extends Box{
         Skeleton.getInstance().Call(this, warehouse,"CBDecrease()");
         warehouse.CBDecrease();
 
-        Skeleton.getInstance().Call(this, field,"Remove(t)");
+        String name = Skeleton.getInstance().GetName(this);
+        Skeleton.getInstance().Call(this, field,"Remove("+name+")");
         field.Remove(this);
 
         Skeleton.getInstance().Return(this);

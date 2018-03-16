@@ -103,6 +103,13 @@ public class Skeleton {
     }
 
     /**
+     * tarolóban tárolt dolog nevét visszaadja
+     * @param a dolog referenciája
+     * @return
+     */
+    public String GetName(Object a){ return tarolo.get(a); }
+
+    /**
      * tarolo teljes kiürítése
      */
     public void Clear(){

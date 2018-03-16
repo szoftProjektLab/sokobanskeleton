@@ -56,7 +56,8 @@ public class Player extends Thing {
         if (tmp instanceof Wall){ //5.3.8
             //fal
         }else{
-            Skeleton.getInstance().Call(this, field,"TryMove(d, this)");
+            String name = Skeleton.getInstance().GetName(this);
+            Skeleton.getInstance().Call(this, field,"TryMove(d, "+name+")");
             tmp.TryMove(d, this);
         }
         Skeleton.getInstance().Return(this);
@@ -86,7 +87,8 @@ public class Player extends Thing {
         Skeleton.getInstance().Call(this, field,"PDecrease()");
         warehouse.PDecrease();
 
-        Skeleton.getInstance().Call(this, field,"Remove(t)");
+        String name = Skeleton.getInstance().GetName(this);
+        Skeleton.getInstance().Call(this, field,"Remove("+name+")");
         field.Remove(this);
 
         Skeleton.getInstance().Return(this);

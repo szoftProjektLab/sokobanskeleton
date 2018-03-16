@@ -26,7 +26,8 @@ public class Box extends Thing {
      * Hole-ra érkezve meghívódik ez a metódust
      */
     public void Die(){
-        Skeleton.getInstance().Call(this, field,"Remove(t)");
+        String name = Skeleton.getInstance().GetName(this);
+        Skeleton.getInstance().Call(this, field,"Remove("+name+")");
         field.Remove(this);
 
         Skeleton.getInstance().Return(this);
