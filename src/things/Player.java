@@ -51,9 +51,12 @@ public class Player extends Thing {
      * @param d A mozgás iránya
      */
     public void StratMove(Direction d){
-        //???
-        //call
-        //trymove
+        if (Skeleton.getInstance().Option("f1 szomszédja (f2) fal?")){ //5.3.8
+            Skeleton.getInstance().Return(this);
+        }else{
+            Skeleton.getInstance().Call(this, field,"GetNeighbour");
+            Field tmp = field.GetNeighbour(d);
+        }
     }
 
     /**

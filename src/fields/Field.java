@@ -31,6 +31,17 @@ public class Field {
     }
 
     /**
+     * Visszaadja abban az irányban lévő szomszédos mezőt
+     * !!csak skeletonban
+     * @param d Szomszéd iránya
+     * @return
+     */
+    public Field GetNeighbour(Direction d){
+        Skeleton.getInstance().Return(this);
+        return neighbours.get(d);
+    }
+
+    /**
      * Egy tárgyat hozzácsatol az aktuális mezőhöz.
      * @param t A csatolandó tárgy
      * @return 0
