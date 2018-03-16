@@ -65,4 +65,8 @@ public class Thing {
      * A leszármazottak felüldefiniálják
      */
     public void Die(){}
+    public void SetField(Field f)
+    {
+        field = f;
+    }
 }

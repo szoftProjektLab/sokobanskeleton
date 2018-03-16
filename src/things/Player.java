@@ -87,8 +87,5 @@ public class Player extends Thing {
 
         Skeleton.getInstance().Return(this);
     }
-    public void SetField(Field f)
-    {
-        field = f;
-    }
+
 }

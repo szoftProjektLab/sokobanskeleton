@@ -77,7 +77,7 @@ public class Field {
      */
     public int TryMove(Direction d){
         //return neighbours.get(d).TryMove(d, this.thing);
-        Skeleton.getInstance().Call(this, neighbours.get(d), "TryMove(d)");
+        Skeleton.getInstance().Call(this, neighbours.get(d), "TryMove(d,t)");
         int tmp = neighbours.get(d).TryMove(d, this.thing);
 
         Skeleton.getInstance().Return(this);
@@ -102,6 +102,8 @@ public class Field {
         Skeleton.getInstance().Return(this);
         return tmp;
     }
+
+    public void SetThing(Thing t){ thing = t;}
 
 
 }

@@ -17,11 +17,22 @@ public class Main {
             System.out.println("\nPlease enter the number of use-case you want to see!");
 
             Scanner in = new Scanner(System.in);
+            Field f1,f2,f3;
 
                 int choice = in.nextInt();
                 Skeleton sk = Skeleton.getInstance();
                 switch(choice) {
                     case 1:
+                        Box b1 = new Box();
+                        f1 = new Field();
+                        f2 = new Field();
+                        f3 = new Field();
+                        Player p1 = new Player();
+                        sk.Add(f1,"f1");sk.Add(f2,"f2");sk.Add(f3,"f3");sk.Add(p1,"p1");sk.Add(b1,"b1");
+                        f2.SetThing(b1);
+                        b1.SetField(f2);
+                        f2.SetNeighbour(Direction.Right,f3);
+                        b1.Collide(Direction.Right,p1);
                         break;
                     case 2:
                         break;
@@ -38,9 +49,9 @@ public class Main {
                     case 8:
                         Player p = new Player();
                         Player p2 = new Player();
-                        Field f1 = new Field();
+                        f1 = new Field();
                         p.SetField(f1);
-                        Field f2 = new Field();
+                        f2 = new Field();
                         f1.SetNeighbour(Direction.Right,f2);
                         sk.Add(p,"Player1");
                         sk.Add(p2, "Main");
