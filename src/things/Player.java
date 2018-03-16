@@ -53,9 +53,13 @@ public class Player extends Thing {
     public void StartMove(Direction d){
         Skeleton.getInstance().Call(this, field,"GetNeighbour(d)");
         Field tmp = field.GetNeighbour(d);
-        if (Skeleton.getInstance().Option("f1 szomszédja (f2) fal?")){ //5.3.8
-            Skeleton.getInstance().Return(this);
+        if (tmp instanceof Wall){ //5.3.8
+            //fal
+        }else{
+            Skeleton.getInstance().Call(this, field,"TryMove(d, this)");
+            tmp.TryMove(d, this);
         }
+        Skeleton.getInstance().Return(this);
     }
 
     /**
