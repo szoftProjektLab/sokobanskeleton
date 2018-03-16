@@ -16,10 +16,10 @@ public class Switch extends Field{
     public void Remove(Box b){
         this.thing=null;
 
-        Skeleton.getInstance.Call(this, hole,"SetOpen");
+        Skeleton.getInstance().Call(this, hole,"SetOpen");
         hole.SetOpen(false);
 
-        Skeleton.getInstance.Return(this);
+        Skeleton.getInstance().Return(this);
     }
 
     /**
@@ -28,9 +28,9 @@ public class Switch extends Field{
      * @return
      */
     public int Interact(Box b) {
-        Skeleton.getInstance.Call(this, hole,"SetOpen");
+        Skeleton.getInstance().Call(this, hole,"SetOpen");
         hole.SetOpen(true);
-        Skeleton.getInstance.Return(this);
+        Skeleton.getInstance().Return(this);
         return 0;
     }
 

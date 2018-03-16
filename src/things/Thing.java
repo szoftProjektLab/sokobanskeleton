@@ -18,10 +18,10 @@ public class Thing {
      * @return
      */
     public int MakeCollision (Direction d, Thing t){
-        Skeleton.getInstance.Call(this, t,"Collide");
+        Skeleton.getInstance().Call(this, t,"Collide");
         int tmp = t.Collide(d, this);
 
-        Skeleton.getInstance.Return(this);
+        Skeleton.getInstance().Return(this);
         return tmp;
     }
 
@@ -41,13 +41,13 @@ public class Thing {
      * @return
      */
     public int AcceptMove(Field f){
-        Skeleton.getInstance.Call(this, field,"Remove");
+        Skeleton.getInstance().Call(this, field,"Remove");
         field.Remove(this);
 
-        Skeleton.getInstance.Call(this, f,"Add");
+        Skeleton.getInstance().Call(this, f,"Add");
         int tmp = f.Add(this);
 
-        Skeleton.getInstance.Return(this);
+        Skeleton.getInstance().Return(this);
         return tmp;
     }
 
@@ -57,7 +57,7 @@ public class Thing {
      * @return 0
      */
     public int AcceptMove(Wall w){
-        Skeleton.getInstance.Return(this);
+        Skeleton.getInstance().Return(this);
         return 0;
     }
 

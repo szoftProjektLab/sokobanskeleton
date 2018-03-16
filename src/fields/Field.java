@@ -37,18 +37,18 @@ public class Field {
      */
     public int Add(Thing t){
         this.thing = t;
-        Skeleton.getInstance.Call(this, this, "Interact");
+        Skeleton.getInstance().Call(this, this, "Interact");
         int tmp = Interact(t);
-        Skeleton.getInstance.Return(this);
+        Skeleton.getInstance().Return(this);
         return tmp;
     }
 
     /**
      * Az éppen rajta álló tárgyat eltávolítja a mezőről
      */
-    public void Remove(){
+    public void Remove(Thing t){
         this.thing = null;
-        Skeleton.getInstance.Return(this);
+        Skeleton.getInstance().Return(this);
     }
 
     /**
@@ -66,10 +66,10 @@ public class Field {
      */
     public int TryMove(Direction d){
         //return neighbours.get(d).TryMove(d, this.thing);
-        Skeleton.getInstance.Call(this, neighbours.get(d), "TryMove");
+        Skeleton.getInstance().Call(this, neighbours.get(d), "TryMove");
         int tmp = neighbours.get(d).TryMove(d, this.thing);
 
-        Skeleton.getInstance.Return(this);
+        Skeleton.getInstance().Return(this);
         return tmp;
     }
 
@@ -82,13 +82,13 @@ public class Field {
     public int TryMove(Direction d, Thing t){
         int tmp =0;
         if (this.thing==null){
-            Skeleton.getInstance.Call(this, t, "AcceptMove");
+            Skeleton.getInstance().Call(this, t, "AcceptMove");
             tmp = t.AcceptMove(this);
         } else{
-            Skeleton.getInstance.Call(this, t, "MakeCollision");
+            Skeleton.getInstance().Call(this, t, "MakeCollision");
             tmp = t.MakeCollision(d, this.thing);
         }
-        Skeleton.getInstance.Return(this);
+        Skeleton.getInstance().Return(this);
         return tmp;
     }
 

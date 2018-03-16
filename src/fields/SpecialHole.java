@@ -14,10 +14,10 @@ public class SpecialHole extends Hole {
      */
     public int Interact(Thing t){
         if(open){
-            Skeleton.getInstance.Call(this, t,"Die");
+            Skeleton.getInstance().Call(this, t,"Die");
             t.Die();
         }
-        Skeleton.getInstance.Return(this);
+        Skeleton.getInstance().Return(this);
         return 0;
     }
 
@@ -27,7 +27,7 @@ public class SpecialHole extends Hole {
      */
     public void SetOpen(boolean op) {
         open=op;
-        Skeleton.getInstance.Return(this);
+        Skeleton.getInstance().Return(this);
     }
 
 }
