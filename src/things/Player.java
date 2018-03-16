@@ -3,11 +3,19 @@ package things;
 import enums.Direction;
 import fields.*;
 import game.Skeleton;
+import game.Warehouse;
 
 public class Player extends Thing {
 
     /** A játékos ponjai */
     private int points;
+
+    //
+    Warehouse wh;
+    public void SetWarehouse(Warehouse wh){
+        this.wh = wh;
+    }
+    //
 
     /**
      * A kapott értékkel növeli a Player pontszámának értékét.
@@ -53,9 +61,11 @@ public class Player extends Thing {
     public void StartMove(Direction d){
         Skeleton.getInstance().Call(this, field,"GetNeighbour(d)");
         Field tmp = field.GetNeighbour(d);
-        if (Skeleton.getInstance().Option("f1 szomszédja (f2) fal?")){ //5.3.8
-            Skeleton.getInstance().Return(this);
-        }
+
+        Skeleton.getInstance().Call(this, field,"TryMove(d, this)");
+        tmp.TryMove(d, this);
+
+        Skeleton.getInstance().Return(this);
     }
 
     /**
@@ -64,13 +74,18 @@ public class Player extends Thing {
      * @return 0
      */
     public int AcceptMove (Wall w){
-        //???
-        //delete
-        //Skeleton.getInstance.Call(this, field,"Remove");
-        //field.Remove(this);
+        Skeleton.getInstance().Call(this, field,"Remove(t)");
+        field.Remove(this);
+
+        Skeleton.getInstance().Call(this, w,"Add(t)");
+        int tmp = w.Add(this);
+
+        Skeleton.getInstance().Call(this, w,"BackTrack");
+        w.BackTrack();
 
         Skeleton.getInstance().Return(this);
-        return 0;
+        return tmp;
+
     }
 
     /**
@@ -79,7 +94,7 @@ public class Player extends Thing {
      * a játékosok számát csökkenti eggyel.
      */
     public void Die(){
-        Skeleton.getInstance().Call(this, field,"PDecrease()");
+        Skeleton.getInstance().Call(this, warehouse,"PDecrease()");
         warehouse.PDecrease();
 
         Skeleton.getInstance().Call(this, field,"Remove(t)");

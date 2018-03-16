@@ -79,7 +79,7 @@ public class Skeleton {
      * @return Kérdésre adott válasz kiértékelve.
      */
     public Boolean Option(String q){
-        System.out.println(q);
+        System.out.println(q + " (y/n)");
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         try {
             while(true){

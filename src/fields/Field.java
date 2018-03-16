@@ -2,6 +2,7 @@ package fields;
 
 import enums.Direction;
 import game.Skeleton;
+import game.Warehouse;
 import things.Thing;
 
 import java.util.HashMap;
@@ -9,7 +10,11 @@ import java.util.Map;
 
 public class Field {
 
-    private Map<Direction,Field> neighbours;
+    //
+    protected Warehouse wh;
+    //
+
+    protected Map<Direction,Field> neighbours;
     protected Thing thing;
 
     /**
@@ -29,6 +34,12 @@ public class Field {
         //Kell setterbe? Skeleton.getInstance.Return(this);
         neighbours.put(d, f);
     }
+
+    //
+    public void SetWarehouse(Warehouse wh){
+        this.wh = wh;
+    }
+    //
 
     /**
      * Visszaadja abban az irányban lévő szomszédos mezőt

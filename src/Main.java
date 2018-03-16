@@ -18,6 +18,7 @@ public class Main {
 
             Scanner in = new Scanner(System.in);
             Field f1,f2,f3;
+            Wall w1;
 
                 int choice = in.nextInt();
                 Skeleton sk = Skeleton.getInstance();
@@ -47,16 +48,21 @@ public class Main {
                     case 7:
                         break;
                     case 8:
+                        Warehouse warh = new Warehouse();
                         Player p = new Player();
                         Player p2 = new Player();
                         f1 = new Field();
                         p.SetField(f1);
-                        f2 = new Field();
-                        f1.SetNeighbour(Direction.Right,f2);
+                        w1 = new Wall();
+                        f1.SetNeighbour(Direction.Right,w1);
+                        w1.SetNeighbour(Direction.Left, f1);
+                        f1.SetWarehouse(warh);
+                        p.SetWarehouse(warh);
+                        sk.Add(warh, "Warehouse");
                         sk.Add(p,"Player1");
                         sk.Add(p2, "Main");
                         sk.Add(f1,"Field1");
-                        sk.Add(f2,"Field2");
+                        sk.Add(w1,"Wall1");
                         Skeleton.getInstance().Call(p2,p,"StartMove(Direction.Right)");
                         p.StartMove(Direction.Right);
                         break;

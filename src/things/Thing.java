@@ -57,6 +57,7 @@ public class Thing {
      * @return 0
      */
     public int AcceptMove(Wall w){
+
         Skeleton.getInstance().Return(this);
         return 0;
     }
