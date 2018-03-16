@@ -15,7 +15,7 @@ public class Box extends Thing {
      * @return
      */
     public int Collide(Direction d, Thing t){
-        Skeleton.getInstance().Call(this, field,"TryMove");
+        Skeleton.getInstance().Call(this, field,"TryMove(d)");
         int tmp = field.TryMove(d);
 
         Skeleton.getInstance().Return(this);
@@ -26,7 +26,7 @@ public class Box extends Thing {
      * Hole-ra érkezve meghívódik ez a metódust
      */
     public void Die(){
-        Skeleton.getInstance().Call(this, field,"Remove");
+        Skeleton.getInstance().Call(this, field,"Remove(t)");
         field.Remove(this);
 
         Skeleton.getInstance().Return(this);

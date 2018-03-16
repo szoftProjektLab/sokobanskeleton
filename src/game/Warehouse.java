@@ -17,7 +17,7 @@ public class Warehouse {
             //Játék referencia lekérdezése
             Game game = Game.getInstance();
             //Hívás előtt a skeleton kiíró függvényét meghívjuk
-            Skeleton.getInstance().Call(this,game,"EndGame");
+            Skeleton.getInstance().Call(this,game,"EndGame()");
             //Véget ér a játék, meghívjuk a singleton Game osztálynak a függvényét
             game.EndGame();
         }
@@ -32,7 +32,7 @@ public class Warehouse {
             //Játék referencia lekérdezése
             Game game = Game.getInstance();
             //Hívás előtt a skeleton kiíró függvényét meghívjuk
-            Skeleton.getInstance().Call(this,game,"EndGame");
+            Skeleton.getInstance().Call(this,game,"EndGame()");
             //Véget ér a játék, meghívjuk a singleton Game osztálynak a függvényét
             game.EndGame();
         }

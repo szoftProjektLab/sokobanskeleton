@@ -1,4 +1,6 @@
 package display;
+import game.Skeleton;
+
 import java.util.Random;
 
 public class Colours {
@@ -29,8 +31,9 @@ public class Colours {
      * Random színt készít.
      * @return Random színt visszaad.
      */
-    public static Colours RandomColour()
+    public Colours RandomColour()
     {
+        Skeleton.getInstance().Return(this);
         return new Colours();
     }
 

@@ -20,7 +20,7 @@ public class ColouredField extends Field{
      */
     public void InitColour(){
         //inithez kell?// Skeleton.getInstance.Call(this, ,"RandomColour");
-        Colours c = Colours.RandomColour();
+        Colours c = colour.RandomColour();
 
         //inithez kell?// Skeleton.getInstance.Call(this, this,"SetColour");
         SetColour(c);
@@ -41,7 +41,7 @@ public class ColouredField extends Field{
         int tmp=0;
         if (thing==box){
             tmp=1;
-            Skeleton.getInstance().Call(this, thing,"Die");
+            Skeleton.getInstance().Call(this, thing,"Die()");
             thing.Die();
         }
         Skeleton.getInstance().Return(this);

@@ -38,7 +38,7 @@ public class Player extends Thing {
      */
     public int Collide (Direction d, Box b){
         //tmp: <return field.TryPlyer(d);> szét kellett választani h jó sorrendben fusson a call és return
-        Skeleton.getInstance().Call(this, field,"TryMove");
+        Skeleton.getInstance().Call(this, field,"TryMove(d)");
         int tmp = field.TryMove(d);
 
         Skeleton.getInstance().Return(this);
@@ -50,12 +50,11 @@ public class Player extends Thing {
      * majd pontszámát növeli
      * @param d A mozgás iránya
      */
-    public void StratMove(Direction d){
+    public void StartMove(Direction d){
+        Skeleton.getInstance().Call(this, field,"GetNeighbour(d)");
+        Field tmp = field.GetNeighbour(d);
         if (Skeleton.getInstance().Option("f1 szomszédja (f2) fal?")){ //5.3.8
             Skeleton.getInstance().Return(this);
-        }else{
-            Skeleton.getInstance().Call(this, field,"GetNeighbour");
-            Field tmp = field.GetNeighbour(d);
         }
     }
 
@@ -80,12 +79,16 @@ public class Player extends Thing {
      * a játékosok számát csökkenti eggyel.
      */
     public void Die(){
-        Skeleton.getInstance().Call(this, field,"PDecrease");
+        Skeleton.getInstance().Call(this, field,"PDecrease()");
         warehouse.PDecrease();
 
-        Skeleton.getInstance().Call(this, field,"Remove");
+        Skeleton.getInstance().Call(this, field,"Remove(t)");
         field.Remove(this);
 
         Skeleton.getInstance().Return(this);
+    }
+    public void SetField(Field f)
+    {
+        field = f;
     }
 }

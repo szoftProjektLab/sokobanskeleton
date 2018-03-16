@@ -14,7 +14,7 @@ public class SpecialHole extends Hole {
      */
     public int Interact(Thing t){
         if(open){
-            Skeleton.getInstance().Call(this, t,"Die");
+            Skeleton.getInstance().Call(this, t,"Die()");
             t.Die();
         }
         Skeleton.getInstance().Return(this);

@@ -43,11 +43,11 @@ public class Skeleton {
      */
     public void Call(Object caller, Object receiver, String fv){
         try{
-          if(tarolo.get(caller)==null)throw new Exception("The caller object has not found");
-          else if(tarolo.get(receiver)==null)throw new Exception("The Receiver object has not found");
+          if(tarolo.get(caller)==null)throw new Exception("The caller object has not been found");
+          else if(tarolo.get(receiver)==null)throw new Exception("The Receiver object has not been found");
           else {
-              for(int i=0;i<level;i++)System.out.println(">");
-              System.out.println(tarolo.get(caller)+" meghivja"+ tarolo.get(receiver)+" " + fv+" metodusat");
+              for(int i=0;i<level;i++)System.out.print(">");
+              System.out.println(tarolo.get(caller)+" meghivja "+ tarolo.get(receiver)+" " + fv+" metodusat");
               level++;
           }
         }
@@ -62,7 +62,7 @@ public class Skeleton {
      */
     public void Return(Object returner){
         try{
-            if(tarolo.get(returner)==null)throw new Exception("The returner object has not found");
+            if(tarolo.get(returner)==null)throw new Exception("The returner object has not been found");
             else {
                 System.out.println("< "+tarolo.get(returner)+" visszater");
                 level--;

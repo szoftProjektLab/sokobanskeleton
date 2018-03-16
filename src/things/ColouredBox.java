@@ -12,10 +12,10 @@ public class ColouredBox extends Box{
      * meghívja a Warehouse  CBDecrease() metódusát.
      */
     public void Die(){
-        Skeleton.getInstance().Call(this, warehouse,"CBDecrease");
+        Skeleton.getInstance().Call(this, warehouse,"CBDecrease()");
         warehouse.CBDecrease();
 
-        Skeleton.getInstance().Call(this, field,"Remove");
+        Skeleton.getInstance().Call(this, field,"Remove(t)");
         field.Remove(this);
 
         Skeleton.getInstance().Return(this);

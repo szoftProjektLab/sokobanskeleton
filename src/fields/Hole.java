@@ -11,7 +11,7 @@ public class Hole extends Field {
      * @return 0
      */
     public int Interact(Thing t){
-        Skeleton.getInstance().Call(this, t,"Die");
+        Skeleton.getInstance().Call(this, t,"Die()");
         t.Die();
         Skeleton.getInstance().Return(this);
         return 0;
