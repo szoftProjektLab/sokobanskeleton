@@ -39,6 +39,7 @@ public class Main {
                         //5.3.1 Jatekos tol Ladat
                         break;
                     case 3:
+                        //Erik egy kuki
                         break;
                     case 4:
                         break;
