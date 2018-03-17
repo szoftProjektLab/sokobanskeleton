@@ -114,6 +114,7 @@ public class Skeleton {
      */
     public void Clear(){
         tarolo.clear();
+        level=1;
     }
 
 }
