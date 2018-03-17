@@ -37,10 +37,12 @@ public class Main {
             Field f0, f1,f2,f3;
             Wall w1;
             Box b1, b2;
-            Player p1, p2;
+            Player p, p1, p2;
             Hole h;
             Warehouse w;
             Game g;
+            ColouredField cf;
+            ColouredBox cb;
 
             Skeleton sk = Skeleton.getInstance();
 
@@ -135,13 +137,45 @@ public class Main {
                         break;
 
                     case 6:
+                        h = new Hole();
+                        b1 = new Box();
+                        p = new Player();
+
+                        sk.Add(h, "Hole");
+                        sk.Add(b1, "Box1");
+                        sk.Add(p,"Main");
+
+                        b1.SetField(h);
+                        h.SetThing(b1);
+                        Skeleton.getInstance().Call(p,h,"Interact(b1)");
+                        h.Interact(b1);
                         break;
 
                     case 7:
+                        cf = new ColouredField();
+                        cb = new ColouredBox();
+                        w = new Warehouse();
+                        g = new Game();
+                        p = new Player();
+
+                        w.setColouredBoxCount(2);
+                        cf.SetBox(cb);
+                        cf.SetThing(cb);
+                        cb.SetField(cf);
+                        cb.setWarehouse(w);
+
+                        sk.Add(p, "Main");
+                        sk.Add(cf, "ColouredField");
+                        sk.Add(cb, "ColouredBox");
+                        sk.Add(w, "Warehouse");
+                        sk.Add(g, "Game");
+
+                        Skeleton.getInstance().Call(p, cf, "Interact(cb)");
+                        cf.Interact(cb);
                         break;
 
                     case 8:
-                        Player p = new Player();
+                        p = new Player();
                         p2 = new Player();
                         f1 = new Field();
                         w1 = new Wall();
@@ -156,9 +190,35 @@ public class Main {
                         break;
 
                     case 9:
+                        p1 = new Player();
+                        f1 = new Field();
+                        w = new Warehouse();
+                        g = new Game();
+                        w1 = new Wall();    //a fal osztály nincs megírva
+
+                        w.setPlayerCount(3);
+                        p1.SetField(w1);
+                        w1.SetThing(p1);
+                        p1.setWarehouse(w);
+                        sk.Add(p1, "Player");
+                        sk.Add(f1, "Field");
+                        sk.Add(w, "Warehouse");
+                        sk.Add(g, "Game");
+                        sk.Add(w1, "Wall");
+                        Skeleton.getInstance().Call(w1,p1,"AcceptMove(Wall)");
+                        p1.AcceptMove(w1);
                         break;
 
                     case 10:
+                        b1 = new Box();
+                        w1 = new Wall();
+
+                        sk.Add(b1, "Box");
+                        sk.Add(w1, "Wall");
+
+                        Skeleton.getInstance().Call(w1,b1,"AcceptMove(Wall)");
+                        b1.AcceptMove(w1);
+
                         break;
 
                     default:
