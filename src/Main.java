@@ -38,6 +38,7 @@ public class Main {
                     case 2:
                         break;
                     case 3:
+                        //Erik egy kuki
                         break;
                     case 4:
                         break;
