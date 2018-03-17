@@ -11,10 +11,25 @@ public class Main {
     public static void main(String[] args) {
 
         while(true){
-            System.out.println("1: Jatekos tol Ladat\n2: Lada tol Ladat\n3: Jatekos tol Jatekost\n" +
-                    "4: Láda tol Jatekost\n5: Jatekos Lyukba esik\n6: Lada Lyukba esik\n7: Szines Lada Szines Mezore kerul\n" +
-                    "8: Jatekos falnak megy magatol\n9: Jatekost Falnak toljak\n10: Ladat Falnak toljak");
-            System.out.println("\nPlease enter the number of use-case you want to see!");
+            System.out.print(
+                    "\n\n\n\n"+
+                    "------------------------------------------\n" +
+                    "| Please select a use-case:              |\n" +
+                    "------------------------------------------\n" +
+                    "| 1:  Jatekos tol Ladat                  |\n" +
+                    "| 2:  Lada tol Ladat                     |\n" +
+                    "| 3:  Jatekos tol Jatekost               |\n" +
+                    "| 4:  Láda tol Jatekost                  |\n" +
+                    "| 5:  Jatekos Lyukba esik                |\n" +
+                    "| 6:  Lada Lyukba esik                   |\n" +
+                    "| 7:  Szines Lada Szines Mezore kerul    |\n" +
+                    "| 8:  Jatekos falnak megy magatol        |\n" +
+                    "| 9:  Jatekost Falnak toljak             |\n" +
+                    "| 10: Ladat Falnak toljak                |\n" +
+                    "------------------------------------------\n" +
+                    "-> Selected use-case: "
+            );
+
 
             Scanner in = new Scanner(System.in);
             Field f0, f1,f2,f3;
@@ -120,10 +135,19 @@ public class Main {
                     case 10:
                         break;
                     default:
-                        System.out.flush();
-                        System.out.println("\nKerem adjon meg egy szamot 1 es 10 kozott!\n");
+                        System.out.println("\n\n\nSelected use-case does not exist! \nPlease type a number between 1 and 10.");
                         break;
                 }
+
+                System.out.flush();
+                System.out.println(
+                        "\n\n\n\n"+
+                        "------------------------------\n"+
+                        "   Press Enter to continue!   \n"+
+                        "------------------------------\n");
+                Scanner console = new Scanner(System.in);
+                console.nextLine();
+                for (int i = 0; i < 20; i++) System.out.println();
 
 
         }
