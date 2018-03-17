@@ -10,6 +10,10 @@ public class Warehouse {
     //Kezdési folyamat
     public void StartingProcess(){}
 
+    public void setPlayerCount(int szam){
+        playerCount = szam;
+    }
+
     //Színes dobozok számát csökkentő függvény, véget vet a játéknak, ha egy feltétel teljesül
     public void CBDecrease() {
         colouredBoxCount--;

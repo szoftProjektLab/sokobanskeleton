@@ -10,6 +10,10 @@ public class Thing {
     Warehouse warehouse;
     Field field;
 
+    public void setWarehouse(Warehouse w){
+        warehouse = w;
+    }
+
     /**
      * Ha a helyet változtató Thing új Field-jén áll egy Thing, ez hívja meg,
      * hogy értesítse

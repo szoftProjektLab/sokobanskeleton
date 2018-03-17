@@ -34,16 +34,21 @@ public class Main {
             Scanner in = new Scanner(System.in);
             Field f1,f2,f3;
             Wall w1;
+            Box b1;
+            Player p1, p2;
+            Hole h;
+            Warehouse w;
+            Game g;
 
                 int choice = in.nextInt();
                 Skeleton sk = Skeleton.getInstance();
                 switch(choice) {
                     case 1:
-                        Box b1 = new Box();
+                        b1 = new Box();
                         f1 = new Field();
                         f2 = new Field();
                         f3 = new Field();
-                        Player p1 = new Player();
+                        p1 = new Player();
                         sk.Add(f1,"f1");sk.Add(f2,"f2");sk.Add(f3,"f3");sk.Add(p1,"p1");sk.Add(b1,"b1");
                         f2.SetThing(b1);
                         b1.SetField(f2);
@@ -52,12 +57,40 @@ public class Main {
                         break;
                     case 2:
                         //5.3.1 Jatekos tol Ladat
+                        b1 = new Box();
+                        f2 = new Field();
+                        f3 = new Field();
+                        p1 = new Player();
                         break;
                     case 3:
                         break;
                     case 4:
                         break;
                     case 5:
+                        h = new Hole();
+                        p1 = new Player();
+                        p2 = new Player();
+                        w = new Warehouse();
+                        g = new Game();
+                        sk.Add(h, "Hole");
+                        sk.Add(p1, "Player");
+                        sk.Add(p2, "Main");
+                        sk.Add(w, "Warehouse");
+                        sk.Add(g, "Game");
+
+                        p1.setWarehouse(w);
+                        w.setPlayerCount(3);
+                        p1.SetField(h);
+                        h.SetThing(p1);
+                        Skeleton.getInstance().Call(p2,h,"Interact(Player)");
+                        h.Interact(p1);
+                        /*Skeleton.getInstance().Call(h,p1,"Die()");
+                        p1.Die();
+                        Skeleton.getInstance().Call(p1,w,"PDecrease()");
+                        w.PDecrease();
+                        Skeleton.getInstance().Call(p1,h,"Remove(p1)");
+                        h.Remove(p1);*/
+
                         break;
                     case 6:
                         break;
@@ -65,7 +98,7 @@ public class Main {
                         break;
                     case 8:
                         Player p = new Player();
-                        Player p2 = new Player();
+                        p2 = new Player();
                         f1 = new Field();
                         w1 = new Wall();
                         p.SetField(f1);
