@@ -29,9 +29,10 @@ public class Main {
                     "------------------------------------------\n" +
                     "-> Selected use-case: "
             );
-
-
             Scanner in = new Scanner(System.in);
+            int choice = in.nextInt();
+            System.out.print("\n\n\n");
+
             Field f0, f1,f2,f3;
             Wall w1;
             Box b1, b2;
@@ -40,9 +41,9 @@ public class Main {
             Warehouse w;
             Game g;
 
-                int choice = in.nextInt();
-                Skeleton sk = Skeleton.getInstance();
-                switch(choice) {
+            Skeleton sk = Skeleton.getInstance();
+
+            switch(choice) {
                     case 1:
                         //5.3.1 Jatekos tol Ladat
                         b1 = new Box();
@@ -152,17 +153,17 @@ public class Main {
                     default:
                         System.out.println("\n\n\nSelected use-case does not exist! \nPlease type a number between 1 and 10.");
                         break;
-                }
+            }
 
-                System.out.flush();
-                System.out.println(
+            System.out.flush();
+            System.out.println(
                         "\n\n\n\n"+
                         "------------------------------\n"+
                         "   Press Enter to continue!   \n"+
                         "------------------------------\n");
-                Scanner console = new Scanner(System.in);
-                console.nextLine();
-                for (int i = 0; i < 20; i++) System.out.println();
+            Scanner console = new Scanner(System.in);
+            console.nextLine();
+            for (int i = 0; i < 20; i++) System.out.println();
 
 
         }
