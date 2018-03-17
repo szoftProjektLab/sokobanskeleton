@@ -1,4 +1,4 @@
 package fields;
 
-public class Wall {
+public class Wall extends Field{
 }
