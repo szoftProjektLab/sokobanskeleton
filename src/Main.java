@@ -19,16 +19,18 @@ public class Main {
             Scanner in = new Scanner(System.in);
             Field f1,f2,f3;
             Wall w1;
+            Box b1;
+            Player p1;
 
                 int choice = in.nextInt();
                 Skeleton sk = Skeleton.getInstance();
                 switch(choice) {
                     case 1:
-                        Box b1 = new Box();
+                        b1 = new Box();
                         f1 = new Field();
                         f2 = new Field();
                         f3 = new Field();
-                        Player p1 = new Player();
+                        p1 = new Player();
                         sk.Add(f1,"f1");sk.Add(f2,"f2");sk.Add(f3,"f3");sk.Add(p1,"p1");sk.Add(b1,"b1");
                         f2.SetThing(b1);
                         b1.SetField(f2);
@@ -37,6 +39,10 @@ public class Main {
                         break;
                     case 2:
                         //5.3.1 Jatekos tol Ladat
+                        b1 = new Box();
+                        f2 = new Field();
+                        f3 = new Field();
+                        p1 = new Player();
                         break;
                     case 3:
                         //Erik egy kuki
