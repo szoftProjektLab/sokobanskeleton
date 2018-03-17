@@ -20,7 +20,10 @@ public class Main {
             Field f1,f2,f3;
             Wall w1;
             Box b1;
-            Player p1;
+            Player p1, p2;
+            Hole h;
+            Warehouse w;
+            Game g;
 
                 int choice = in.nextInt();
                 Skeleton sk = Skeleton.getInstance();
@@ -50,6 +53,30 @@ public class Main {
                     case 4:
                         break;
                     case 5:
+                        h = new Hole();
+                        p1 = new Player();
+                        p2 = new Player();
+                        w = new Warehouse();
+                        g = new Game();
+                        sk.Add(h, "Hole");
+                        sk.Add(p1, "Player");
+                        sk.Add(p2, "Main");
+                        sk.Add(w, "Warehouse");
+                        sk.Add(g, "Game");
+
+                        p1.setWarehouse(w);
+                        w.setPlayerCount(3);
+                        p1.SetField(h);
+                        h.SetThing(p1);
+                        Skeleton.getInstance().Call(p2,h,"Interact(Player)");
+                        h.Interact(p1);
+                        /*Skeleton.getInstance().Call(h,p1,"Die()");
+                        p1.Die();
+                        Skeleton.getInstance().Call(p1,w,"PDecrease()");
+                        w.PDecrease();
+                        Skeleton.getInstance().Call(p1,h,"Remove(p1)");
+                        h.Remove(p1);*/
+
                         break;
                     case 6:
                         break;
@@ -57,7 +84,7 @@ public class Main {
                         break;
                     case 8:
                         Player p = new Player();
-                        Player p2 = new Player();
+                        p2 = new Player();
                         f1 = new Field();
                         w1 = new Wall();
                         p.SetField(f1);
