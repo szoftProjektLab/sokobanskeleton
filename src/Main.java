@@ -11,6 +11,7 @@ public class Main {
     public static void main(String[] args) {
 
         while(true){
+
             System.out.print(
                     "\n\n\n\n"+
                     "------------------------------------------\n" +
@@ -58,6 +59,7 @@ public class Main {
                         b1.Collide(Direction.Right,p1);
                         sk.Clear();
                         break;
+
                     case 2:
                         // 5.3.2 Láda tol Ládát
                         b1 = new Box();
@@ -76,6 +78,7 @@ public class Main {
                         b2.Collide(Direction.Right, b1);
                         sk.Clear();
                         break;
+
                     case 3:
                         //5.3.3 Játékos tol Játékost
                         f1 = new Field();
@@ -92,6 +95,7 @@ public class Main {
                         p2.Collide(Direction.Right, p1);
                         sk.Clear();
                         break;
+
                     case 4:
                         b1 = new Box();
                         p1 = new Player();
@@ -109,6 +113,7 @@ public class Main {
                         p1.Collide(Direction.Right, b1);
                         sk.Clear();
                         break;
+
                     case 5:
                         h = new Hole();
                         p1 = new Player();
@@ -128,10 +133,13 @@ public class Main {
                         Skeleton.getInstance().Call(p2,h,"Interact(Player)");
                         h.Interact(p1);
                         break;
+
                     case 6:
                         break;
+
                     case 7:
                         break;
+
                     case 8:
                         Player p = new Player();
                         p2 = new Player();
@@ -146,10 +154,13 @@ public class Main {
                         Skeleton.getInstance().Call(p2,p,"StartMove(Direction.Right)");
                         p.StartMove(Direction.Right);
                         break;
+
                     case 9:
                         break;
+
                     case 10:
                         break;
+
                     default:
                         System.out.println("\n\n\nSelected use-case does not exist! \nPlease type a number between 1 and 10.");
                         break;
@@ -160,9 +171,12 @@ public class Main {
                         "\n\n\n\n"+
                         "------------------------------\n"+
                         "   Press Enter to continue!   \n"+
-                        "------------------------------\n");
+                        "------------------------------\n"
+            );
+            // Várakozás enterre
             Scanner console = new Scanner(System.in);
             console.nextLine();
+            // új üres sorok beszúrása
             for (int i = 0; i < 20; i++) System.out.println();
 
 
