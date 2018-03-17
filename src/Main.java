@@ -36,6 +36,7 @@ public class Main {
                         b1.Collide(Direction.Right,p1);
                         break;
                     case 2:
+                        //5.3.1 Jatekos tol Ladat
                         break;
                     case 3:
                         break;
