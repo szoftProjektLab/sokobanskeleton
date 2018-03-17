@@ -92,6 +92,21 @@ public class Main {
                         sk.Clear();
                         break;
                     case 4:
+                        b1 = new Box();
+                        p1 = new Player();
+                        f0 = new Field();
+                        f1 = new Field();
+                        f2 = new Field();
+                        f0.SetNeighbour(Direction.Right, f1);
+                        f1.SetNeighbour(Direction.Right, f2);
+                        b1.SetField(f0);
+                        f0.SetThing(b1);
+                        p1.SetField(f1);
+                        f1.SetThing(p1);
+                        sk.Add(b1,"Box1"); sk.Add(p1,"Player1"); sk.Add(f0,"Field0"); sk.Add(f1,"Field1"); sk.Add(f2,"Field2");
+                        Skeleton.getInstance().Call(b1,p1,"Collide(Direction.Right, p1)");
+                        p1.Collide(Direction.Right, b1);
+                        sk.Clear();
                         break;
                     case 5:
                         h = new Hole();
