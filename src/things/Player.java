@@ -84,7 +84,7 @@ public class Player extends Thing {
      * a játékosok számát csökkenti eggyel.
      */
     public void Die(){
-        Skeleton.getInstance().Call(this, field,"PDecrease()");
+        Skeleton.getInstance().Call(this, warehouse,"PDecrease()");
         warehouse.PDecrease();
 
         String name = Skeleton.getInstance().GetName(this);

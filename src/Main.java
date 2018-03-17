@@ -17,9 +17,9 @@ public class Main {
             System.out.println("\nPlease enter the number of use-case you want to see!");
 
             Scanner in = new Scanner(System.in);
-            Field f1,f2,f3;
+            Field f0, f1,f2,f3;
             Wall w1;
-            Box b1;
+            Box b1, b2;
             Player p1, p2;
             Hole h;
             Warehouse w;
@@ -29,6 +29,7 @@ public class Main {
                 Skeleton sk = Skeleton.getInstance();
                 switch(choice) {
                     case 1:
+                        //5.3.1 Jatekos tol Ladat
                         b1 = new Box();
                         f1 = new Field();
                         f2 = new Field();
@@ -39,16 +40,41 @@ public class Main {
                         b1.SetField(f2);
                         f2.SetNeighbour(Direction.Right,f3);
                         b1.Collide(Direction.Right,p1);
+                        sk.Clear();
                         break;
                     case 2:
-                        //5.3.1 Jatekos tol Ladat
+                        // 5.3.2 Láda tol Ládát
                         b1 = new Box();
+                        b2 = new Box();
+                        f0 = new Field();
+                        f1 = new Field();
                         f2 = new Field();
-                        f3 = new Field();
-                        p1 = new Player();
+                        f0.SetNeighbour(Direction.Right, f1);
+                        f1.SetNeighbour(Direction.Right, f2);
+                        b1.SetField(f0);
+                        f0.SetThing(b1);
+                        b2.SetField(f1);
+                        f1.SetThing(b2);
+                        sk.Add(b1,"Box1"); sk.Add(b2,"Box2"); sk.Add(f0,"Field0"); sk.Add(f1,"Field1"); sk.Add(f2,"Field2");
+                        Skeleton.getInstance().Call(b1,b2,"Collide(Direction.Right, b1)");
+                        b2.Collide(Direction.Right, b1);
+                        sk.Clear();
                         break;
                     case 3:
-                        //Erik egy kuki
+                        //5.3.3 Játékos tol Játékost
+                        f1 = new Field();
+                        f2 = new Field();
+                        f1.SetNeighbour(Direction.Right, f2);
+                        p1 = new Player();
+                        p2 = new Player();
+                        p1.SetField(f1);
+                        f1.SetThing(p1);
+                        p2.SetField(f2);
+                        f2.SetThing(p2);
+                        sk.Add(f1,"Field1"); sk.Add(f2,"Field2"); sk.Add(p1,"Player1"); sk.Add(p2,"Player2");
+                        Skeleton.getInstance().Call(p1,p2,"Collide(Direction.Right, p1)");
+                        p2.Collide(Direction.Right, p1);
+                        sk.Clear();
                         break;
                     case 4:
                         break;
@@ -70,13 +96,6 @@ public class Main {
                         h.SetThing(p1);
                         Skeleton.getInstance().Call(p2,h,"Interact(Player)");
                         h.Interact(p1);
-                        /*Skeleton.getInstance().Call(h,p1,"Die()");
-                        p1.Die();
-                        Skeleton.getInstance().Call(p1,w,"PDecrease()");
-                        w.PDecrease();
-                        Skeleton.getInstance().Call(p1,h,"Remove(p1)");
-                        h.Remove(p1);*/
-
                         break;
                     case 6:
                         break;
