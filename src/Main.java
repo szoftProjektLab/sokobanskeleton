@@ -52,7 +52,11 @@ public class Main {
                         f2 = new Field();
                         f3 = new Field();
                         p1 = new Player();
-                        sk.Add(f1,"f1");sk.Add(f2,"f2");sk.Add(f3,"f3");sk.Add(p1,"p1");sk.Add(b1,"b1");
+                        sk.Add(f1,"f1");
+                        sk.Add(f2,"f2");
+                        sk.Add(f3,"f3");
+                        sk.Add(p1,"p1");
+                        sk.Add(b1,"b1");
                         f2.SetThing(b1);
                         b1.SetField(f2);
                         f2.SetNeighbour(Direction.Right,f3);
@@ -73,7 +77,11 @@ public class Main {
                         f0.SetThing(b1);
                         b2.SetField(f1);
                         f1.SetThing(b2);
-                        sk.Add(b1,"Box1"); sk.Add(b2,"Box2"); sk.Add(f0,"Field0"); sk.Add(f1,"Field1"); sk.Add(f2,"Field2");
+                        sk.Add(b1,"Box1");
+                        sk.Add(b2,"Box2");
+                        sk.Add(f0,"Field0");
+                        sk.Add(f1,"Field1");
+                        sk.Add(f2,"Field2");
                         Skeleton.getInstance().Call(b1,b2,"Collide(Direction.Right, b1)");
                         b2.Collide(Direction.Right, b1);
                         sk.Clear();
@@ -90,7 +98,10 @@ public class Main {
                         f1.SetThing(p1);
                         p2.SetField(f2);
                         f2.SetThing(p2);
-                        sk.Add(f1,"Field1"); sk.Add(f2,"Field2"); sk.Add(p1,"Player1"); sk.Add(p2,"Player2");
+                        sk.Add(f1,"Field1");
+                        sk.Add(f2,"Field2");
+                        sk.Add(p1,"Player1");
+                        sk.Add(p2,"Player2");
                         Skeleton.getInstance().Call(p1,p2,"Collide(Direction.Right, p1)");
                         p2.Collide(Direction.Right, p1);
                         sk.Clear();
@@ -108,7 +119,11 @@ public class Main {
                         f0.SetThing(b1);
                         p1.SetField(f1);
                         f1.SetThing(p1);
-                        sk.Add(b1,"Box1"); sk.Add(p1,"Player1"); sk.Add(f0,"Field0"); sk.Add(f1,"Field1"); sk.Add(f2,"Field2");
+                        sk.Add(b1,"Box1");
+                        sk.Add(p1,"Player1");
+                        sk.Add(f0,"Field0");
+                        sk.Add(f1,"Field1");
+                        sk.Add(f2,"Field2");
                         Skeleton.getInstance().Call(b1,p1,"Collide(Direction.Right, p1)");
                         p1.Collide(Direction.Right, b1);
                         sk.Clear();
@@ -162,7 +177,10 @@ public class Main {
                         break;
 
                     default:
-                        System.out.println("\n\n\nSelected use-case does not exist! \nPlease type a number between 1 and 10.");
+                        System.out.println(
+                                "\n\n\n"+
+                                "Selected use-case does not exist! \n"+
+                                "Please type a number between 1 and 10.");
                         break;
             }
 
