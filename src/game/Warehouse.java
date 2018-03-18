@@ -20,7 +20,7 @@ public class Warehouse {
     //Színes dobozok számát csökkentő függvény, véget vet a játéknak, ha egy feltétel teljesül
     public void CBDecrease() {
         colouredBoxCount--;
-        if (Skeleton.getInstance().Option("colouredBoxCount egyenlo 0-val")) {
+        if (Skeleton.getInstance().Option("colouredBoxCount egyenlo 0-val?")) {
             //Játék referencia lekérdezése
             Game game = Game.getInstance();
             //Hívás előtt a skeleton kiíró függvényét meghívjuk
@@ -35,7 +35,7 @@ public class Warehouse {
     //Játékosok számát csökkentő függvény, véget vet a játéknak, ha egy feltétel teljesül
     public void PDecrease(){
         playerCount--;
-        if(Skeleton.getInstance().Option("playerCount egyenlo 1-el")) {
+        if(Skeleton.getInstance().Option("playerCount egyenlo 1-el?")) {
             //Játék referencia lekérdezése
             Game game = Game.getInstance();
             //Hívás előtt a skeleton kiíró függvényét meghívjuk
