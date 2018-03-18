@@ -69,6 +69,7 @@ public class Main {
                             f2.SetThing(b1);
                             b1.SetField(f2);
                             f2.SetNeighbour(Direction.Right,f3);
+                            Skeleton.getInstance().Call(p1,b1,"Collide(d, p1)");
                             b1.Collide(Direction.Right,p1);
                             sk.Clear();
                             break;
@@ -86,12 +87,12 @@ public class Main {
                             f0.SetThing(b1);
                             b2.SetField(f1);
                             f1.SetThing(b2);
-                            sk.Add(b1,"Box1");
-                            sk.Add(b2,"Box2");
-                            sk.Add(f0,"Field0");
-                            sk.Add(f1,"Field1");
-                            sk.Add(f2,"Field2");
-                            Skeleton.getInstance().Call(b1,b2,"Collide(Direction.Right, b1)");
+                            sk.Add(b1,"b1");
+                            sk.Add(b2,"b2");
+                            sk.Add(f0,"f0");
+                            sk.Add(f1,"f1");
+                            sk.Add(f2,"f2");
+                            Skeleton.getInstance().Call(b1,b2,"Collide(d, b1)");
                             b2.Collide(Direction.Right, b1);
                             sk.Clear();
                             break;
@@ -107,11 +108,11 @@ public class Main {
                             f1.SetThing(p1);
                             p2.SetField(f2);
                             f2.SetThing(p2);
-                            sk.Add(f1,"Field1");
-                            sk.Add(f2,"Field2");
-                            sk.Add(p1,"Player1");
-                            sk.Add(p2,"Player2");
-                            Skeleton.getInstance().Call(p1,p2,"Collide(Direction.Right, p1)");
+                            sk.Add(f1,"f1");
+                            sk.Add(f2,"f2");
+                            sk.Add(p1,"p1");
+                            sk.Add(p2,"p2");
+                            Skeleton.getInstance().Call(p1,p2,"Collide(d, p1)");
                             p2.Collide(Direction.Right, p1);
                             sk.Clear();
                             break;
@@ -128,12 +129,12 @@ public class Main {
                             f0.SetThing(b1);
                             p1.SetField(f1);
                             f1.SetThing(p1);
-                            sk.Add(b1,"Box1");
-                            sk.Add(p1,"Player1");
-                            sk.Add(f0,"Field0");
-                            sk.Add(f1,"Field1");
-                            sk.Add(f2,"Field2");
-                            Skeleton.getInstance().Call(b1,p1,"Collide(Direction.Right, p1)");
+                            sk.Add(b1,"b1");
+                            sk.Add(p1,"p1");
+                            sk.Add(f0,"f0");
+                            sk.Add(f1,"f1");
+                            sk.Add(f2,"f2");
+                            Skeleton.getInstance().Call(b1,p1,"Collide(d, b1)");
                             p1.Collide(Direction.Right, b1);
                             sk.Clear();
                             break;
@@ -143,17 +144,17 @@ public class Main {
                             p1 = new Player();
                             p2 = new Player();
                             w = new Warehouse();
-                            sk.Add(h, "Hole");
-                            sk.Add(p1, "Player");
+                            sk.Add(h, "h");
+                            sk.Add(p1, "p1");
                             sk.Add(p2, "Main");
-                            sk.Add(w, "Warehouse");
-                            sk.Add(g, "Game");
+                            sk.Add(w, "w");
+                            sk.Add(g, "g");
 
                             p1.setWarehouse(w);
                             w.setPlayerCount(3);
                             p1.SetField(h);
                             h.SetThing(p1);
-                            Skeleton.getInstance().Call(p2,h,"Interact(Player)");
+                            Skeleton.getInstance().Call(p2,h,"Interact(p1)");
                             h.Interact(p1);
                             sk.Clear();
                             break;
@@ -163,8 +164,8 @@ public class Main {
                             b1 = new Box();
                             p = new Player();
 
-                            sk.Add(h, "Hole");
-                            sk.Add(b1, "Box1");
+                            sk.Add(h, "h");
+                            sk.Add(b1, "b1");
                             sk.Add(p,"Main");
 
                             b1.SetField(h);
@@ -188,10 +189,10 @@ public class Main {
                             cb.setWarehouse(w);
 
                             sk.Add(p, "Main");
-                            sk.Add(cf, "ColouredField");
-                            sk.Add(cb, "ColouredBox");
-                            sk.Add(w, "Warehouse");
-                            sk.Add(g, "Game");
+                            sk.Add(cf, "cf");
+                            sk.Add(cb, "cb");
+                            sk.Add(w, "w");
+                            sk.Add(g, "g");
 
                             Skeleton.getInstance().Call(p, cf, "Interact(cb)");
                             cf.Interact(cb);
@@ -205,11 +206,11 @@ public class Main {
                             w1 = new Wall();
                             p.SetField(f1);
                             f1.SetNeighbour(Direction.Right,w1);
-                            sk.Add(p,"Player1");
+                            sk.Add(p,"p1");
                             sk.Add(p2, "Main");
-                            sk.Add(f1,"Field1");
-                            sk.Add(w1,"Wall1");
-                            Skeleton.getInstance().Call(p2,p,"StartMove(Direction.Right)");
+                            sk.Add(f1,"f1");
+                            sk.Add(w1,"f2");
+                            Skeleton.getInstance().Call(p2,p,"StartMove(d)");
                             p.StartMove(Direction.Right);
                             sk.Clear();
                             break;
@@ -224,12 +225,12 @@ public class Main {
                             p1.SetField(w1);
                             w1.SetThing(p1);
                             p1.setWarehouse(w);
-                            sk.Add(p1, "Player");
-                            sk.Add(f1, "Field");
-                            sk.Add(w, "Warehouse");
-                            sk.Add(g, "Game");
-                            sk.Add(w1, "Wall");
-                            Skeleton.getInstance().Call(w1,p1,"AcceptMove(Wall)");
+                            sk.Add(p1, "p1");
+                            sk.Add(f1, "f1");
+                            sk.Add(w, "w");
+                            sk.Add(g, "g");
+                            sk.Add(w1, "w");
+                            Skeleton.getInstance().Call(w1,p1,"AcceptMove(w)");
                             p1.AcceptMove(w1);
                             sk.Clear();
                             break;
@@ -238,8 +239,8 @@ public class Main {
                             b1 = new Box();
                             w1 = new Wall();
 
-                            sk.Add(b1, "Box");
-                            sk.Add(w1, "Wall");
+                            sk.Add(b1, "b1");
+                            sk.Add(w1, "w");
 
                             Skeleton.getInstance().Call(w1,b1,"AcceptMove(Wall)");
                             b1.AcceptMove(w1);
