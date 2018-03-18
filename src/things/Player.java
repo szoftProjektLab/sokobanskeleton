@@ -69,11 +69,8 @@ public class Player extends Thing {
      * @return 0
      */
     public int AcceptMove (Wall w){
-        //???
-        //delete
-        //Skeleton.getInstance.Call(this, field,"Remove");
-        //field.Remove(this);
-
+        Skeleton.getInstance().Call(this,this,"Die()");
+        Die();
         Skeleton.getInstance().Return(this);
         return 0;
     }

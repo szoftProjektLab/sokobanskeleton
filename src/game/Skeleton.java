@@ -117,4 +117,12 @@ public class Skeleton {
         level=1;
     }
 
+    /**
+     * Aszinkron hívást képviseli, Game.EndGame() használja fel
+     */
+    public void LevelDecrease()
+    {
+        level--;
+    }
+
 }
