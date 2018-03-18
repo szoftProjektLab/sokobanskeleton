@@ -14,7 +14,7 @@ public class Main {
         while(true){
 
             System.out.print(
-                    "\n\n\n\n"+
+                    "\n"+
                     "------------------------------------------\n" +
                     "| Please select a use-case:              |\n" +
                     "------------------------------------------\n" +
