@@ -48,9 +48,9 @@ public class Main {
                 Player p, p1, p2;
                 Hole h;
                 Warehouse w;
-                Game g;
                 ColouredField cf;
                 ColouredBox cb;
+                Game g = Game.getInstance();
 
                 Skeleton sk = Skeleton.getInstance();
 
@@ -144,7 +144,6 @@ public class Main {
                             p1 = new Player();
                             p2 = new Player();
                             w = new Warehouse();
-                            g = new Game();
                             sk.Add(h, "Hole");
                             sk.Add(p1, "Player");
                             sk.Add(p2, "Main");
@@ -180,7 +179,7 @@ public class Main {
                             cf = new ColouredField();
                             cb = new ColouredBox();
                             w = new Warehouse();
-                            g = new Game();
+                            g = Game.getInstance();
                             p = new Player();
 
                             w.setColouredBoxCount(2);
@@ -220,7 +219,6 @@ public class Main {
                             p1 = new Player();
                             f1 = new Field();
                             w = new Warehouse();
-                            g = new Game();
                             w1 = new Wall();    //a fal osztály nincs megírva
 
                             w.setPlayerCount(3);
