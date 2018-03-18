@@ -14,7 +14,7 @@ public class Main {
         while(true){
 
             System.out.print(
-                    "\n\n\n\n"+
+                    "\n"+
                     "------------------------------------------\n" +
                     "| Please select a use-case:              |\n" +
                     "------------------------------------------\n" +
@@ -35,7 +35,6 @@ public class Main {
             try {
                 Scanner in = new Scanner(System.in);
                 int choice = in.nextInt();
-                System.out.print(choice);
                 if (choice > 10 || choice < 1){
                     throw new java.util.InputMismatchException();
                 }
@@ -256,25 +255,25 @@ public class Main {
                             break;
                 }
 
-                System.out.flush();
-                System.out.println(
-                            "\n\n\n\n"+
-                            "------------------------------\n"+
-                            "   Press Enter to continue!   \n"+
-                            "------------------------------\n"
-                );
-                // Várakozás enterre
-                Scanner console = new Scanner(System.in);
-                console.nextLine();
-                // új üres sorok beszúrása
-                for (int i = 0; i < 20; i++) System.out.println();
-
             }catch (Exception e){
                 if (e instanceof java.util.InputMismatchException){
-                    System.out.print("\nEnter number from 1 to 10\n");
+                    System.out.print("\n\n\nInput error! Enter number from 1 to 10!\n");
                 }
                 //do nothing in this iteration
             }
+
+            System.out.flush();
+            System.out.println(
+                    "\n\n\n\n"+
+                            "------------------------------\n"+
+                            "   Press Enter to continue!   \n"+
+                            "------------------------------\n"
+            );
+            // Várakozás enterre
+            Scanner console = new Scanner(System.in);
+            console.nextLine();
+            // új üres sorok beszúrása
+            for (int i = 0; i < 20; i++) System.out.println();
         }
     }
 }
