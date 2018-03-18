@@ -50,8 +50,8 @@ public class Main {
                 Warehouse w;
                 ColouredField cf;
                 ColouredBox cb;
-                Game g = Game.getInstance();
 
+                Game g = Game.getInstance();
                 Skeleton sk = Skeleton.getInstance();
 
                 switch(choice) {
